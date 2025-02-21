@@ -158,7 +158,8 @@ Add additional arguments to the code above that does the following:
 Use the `janitor` package to clean the variable names to snake_case.
 
 ```{r}
-snake_case <- janitor::clean_names(youth_fix_variables)
+#| label: Janitor clean
+snake_case <- janitor::clean_names(youth_fix_variables) # Janitor cleaning
 ```
 
 
@@ -171,8 +172,8 @@ Now that the data is clean, you can add `eval: false` to the prior code chunks a
 ```{r}
 #| eval: false
 #| label: read-clean-data
-youth_clean <- snake_case
-write_csv(youth_clean, file = "data_clean/youth_clean.csv")
+youth_clean <- snake_case # making snake_case into youth_clean
+write_csv(youth_clean, file = "data_clean/youth_clean.csv") # saving youth clean csv 
 ```
 
 Why do we keep the code for the data cleaning but set the code chunks to `eval: false`?
