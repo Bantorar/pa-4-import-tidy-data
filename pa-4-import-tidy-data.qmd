@@ -200,11 +200,11 @@ youth_clean |>
 
 What do the two graphs tell you about the missingness in the data (i.e., which variables are missing the most values and which combinations of variables are missing the most together)?
 
-> Insert Answer Here
+> The three main variables that we are missing in the first chart are breakfast eating, physical activity, and soda drinking. The physical activity for 5 days and breakfast eating have the most missing values combined. 
 
 How does the missingness of the data impact what variables you might choose to analyze? Why?
 
-> Insert Answer Here
+> We are more likely to choose variables with data that isn't missing due to have the most accurate analysis.
 
 <!-- Change roles (Developer becomes Coder)! -->
 
