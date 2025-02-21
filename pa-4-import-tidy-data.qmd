@@ -83,7 +83,8 @@ Describe some of the issues you notice in the data:
 Using either the `help` options or the `readr` add an argument to the code above that will skip the first row of the data file so that the 'headers' (column titles) read in correctly.
 ```{r}
 #| label: Fixing head
-youth_fix_top <- read_csv("data-raw/YRBS2015.csv", skip = 1) # Skipping the top row names
+youth_fix_top <- read_csv("data-raw/YRBS2015.csv",
+                          skip = 1) # Skipping the top row names
 ```
 
 
@@ -93,7 +94,9 @@ Take note of how missing values are designated in the data. Add an argument to t
 
 ```{r}
 #| label: fixing missing values
-youth_fix_missing <- read_csv("data-raw/YRBS2015.csv", skip = 1, c(".", "N/A")) # fixing missing values using na function
+youth_fix_missing <- read_csv("data-raw/YRBS2015.csv",
+                              skip = 1,
+                              na = c(".", "N/A")) # fixing missing values using na function
 ```
 
 
@@ -154,6 +157,11 @@ Add additional arguments to the code above that does the following:
 
 Use the `janitor` package to clean the variable names to snake_case.
 
+```{r}
+snake_case <- janitor::clean_names(youth_fix_variables)
+```
+
+
 ### Step 6: Write the Clean Data
 
 Write the clean data to the `data-clean` folder.
@@ -161,13 +169,15 @@ Write the clean data to the `data-clean` folder.
 Now that the data is clean, you can add `eval: false` to the prior code chunks and read in the clean data below.
 
 ```{r}
+#| eval: false
 #| label: read-clean-data
-youth_clean <- 
+youth_clean <- snake_case
+write_csv(youth_clean, file = "data_clean/youth_clean.csv")
 ```
 
 Why do we keep the code for the data cleaning but set the code chunks to `eval: false`?
 
-> Insert Answer Here
+> Because we already did it in the previous code chunk and don't need to show it again.
 
 <!-- Change roles (Developer becomes Coder)! -->
 
