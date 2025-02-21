@@ -270,18 +270,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>What do the two graphs tell you about the missingness in the data (i.e., which variables are missing the most values and which combinations of variables are missing the most together)?</p>
 <blockquote class="blockquote">
-<p>Insert Answer Here</p>
+<p>The three main variables that we are missing in the first chart are breakfast eating, physical activity, and soda drinking. The physical activity for 5 days and breakfast eating have the most missing values combined.</p>
 </blockquote>
 <p>How does the missingness of the data impact what variables you might choose to analyze? Why?</p>
 <blockquote class="blockquote">
-<p>Insert Answer Here</p>
+<p>We are more likely to choose variables with data that isn’t missing due to have the most accurate analysis.</p>
 </blockquote>
 <!-- Change roles (Developer becomes Coder)! -->
 </section>
 <section id="step-8-make-a-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="step-8-make-a-visualization">Step 8: Make a Visualization</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>youth_clean <span class="sc">|&gt;</span>  <span class="co">#instead of data = youth_clean in ggplot we can "pipe" our data  </span></span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>youth_clean <span class="sc">|&gt;</span> <span class="co">#instead of data = youth_clean in ggplot we can "pipe" our data  </span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span>  <span class="co">#drops missing values</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

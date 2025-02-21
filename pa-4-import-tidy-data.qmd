@@ -212,7 +212,7 @@ How does the missingness of the data impact what variables you might choose to a
 
 ```{r}
 #| label: plot  
-youth_clean |>  #instead of data = youth_clean in ggplot we can "pipe" our data  
+youth_clean |> #instead of data = youth_clean in ggplot we can "pipe" our data  
   drop_na() |>  #drops missing values
   ggplot()
 ```
@@ -241,7 +241,7 @@ Complete the following steps in your visualization in the code chunk above:
 
 Working together as a team, the above analysis to answer the following questions on canvas:
 
-1.  Which variable has the most missing values?
+1.  Which variable has the most missing values? 
 
 2.  Which variable combination has the most missing values?
 
