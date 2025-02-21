@@ -9,8 +9,8 @@ execute:
 ```{r}
 #| label: setup
 #| include: false
-library()  #load package of all the tidyverse packages
-library()  #load the package from the video that cleans variable names
+library(tidyverse)  #load package of all the tidyverse packages
+library(janitor)  #load the package from the video that cleans variable names
 ```
 
 <!-- United States Department of Health and Human Services. Centers for Disease Control and Prevention. CDC Youth Risk Behavior Surveillance System (YRBSS) National Datasets, 1991-2021: YRBS_2021_national.csv. Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor], 2025-02-04. https://doi.org/10.3886/E217921V1-168641 -->
@@ -71,20 +71,31 @@ Go ahead and read in the data, calling it `youth`. What do you notice?
 #| label: read-data
 #| eval: false
 
-youth <- read_csv("data-raw/YRBS2015.csv")
+youth <- read_csv("data-raw/YRBS2015.csv") # create original dataset named youth
 ```
 
 Describe some of the issues you notice in the data:
 
-> Insert answer here
+> The columns have ... on all of them, many columns have nothing in it for some of the variables, and the variable names are on the second line instead.
 
 ### Step 2: Skip the First Row
 
 Using either the `help` options or the `readr` add an argument to the code above that will skip the first row of the data file so that the 'headers' (column titles) read in correctly.
+```{r}
+#| label: Fixing head
+youth_fix_top <- read_csv("data-raw/YRBS2015.csv", skip = 1) # Skipping the top row names
+```
+
 
 ### Step 3: Fix the Missing Values
 
 Take note of how missing values are designated in the data. Add an argument to the code above that identifies and fixes the data so that each missing value type is treated as the same `NA`.
+
+```{r}
+#| label: fixing missing values
+youth_fix_missing <- read_csv("data-raw/YRBS2015.csv", skip = 1, na = ".") # fixing missing values using na function
+```
+
 
 <!-- Change roles (Developer becomes Coder)! -->
 
