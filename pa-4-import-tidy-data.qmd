@@ -93,13 +93,38 @@ Take note of how missing values are designated in the data. Add an argument to t
 
 ```{r}
 #| label: fixing missing values
-youth_fix_missing <- read_csv("data-raw/YRBS2015.csv", skip = 1, na = ".") # fixing missing values using na function
+youth_fix_missing <- read_csv("data-raw/YRBS2015.csv", skip = 1, c(".", "N/A")) # fixing missing values using na function
 ```
 
 
 <!-- Change roles (Developer becomes Coder)! -->
 
 ### Step 4: Clean A few of the Variables
+
+```{r}
+#| label: cleaning variables
+youth_fix_variables <- read_csv("data-raw/YRBS2015.csv", 
+                              skip = 1, 
+                              na = c(".", "N/A"), #adjusting na's to "." or "N/A"
+                              col_types = list(AgeCat = col_number(), #cleaning as col_number
+                                               Grade = col_number(), #cleaning as col_number
+                                               `Perception of weight` = col_factor(levels = c("Very underweight","Slightly underweight", "About the right weight", "Slightly overweight", "Very overweight")), #cleaning as col_factor
+                                               Gender = col_character(), #cleaning as characters
+                                               `Height in meters` = col_double(), #cleaning as double (numeric)
+                                               `Weight in kilograms` = col_double(), #cleaning as double (numeric)
+                                               `Body Mass Index` = col_double(), #cleaning as double (numeric)
+                                               `BMI percentile` = col_double(), #cleaning as double (numeric)
+                                               `Fruit eating` = col_factor(), #cleaning as a factor
+                                               `Salad eating` = col_factor(), #cleaning as a factor
+                                               `Other vegetable eating` = col_factor(), #cleaning as a factor
+                                               `Soda drinking` = col_factor(), #cleaning as a factor
+                                               `Breakfast eating` = col_number(), #cleaning as col_number
+                                               `Physical activity >= 5 days` = col_number(), #cleaning as col_number
+                                               `Television watching` = col_factor(), #cleaning as a factor
+                                               `Sports team participation` = col_factor(), #cleaning as a factor
+                                               .default = col_skip() #cleaning as .default to col_skip
+                                               ))
+```
 
 Add additional arguments to the code above that does the following:
 
